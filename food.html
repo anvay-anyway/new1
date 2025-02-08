@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Selection</title>
+    <link rel="stylesheet" href="food.css" />
+  </head>
+  <body>
+    <div id="foodquestion">
+      <b>What food would you like to eat?</b>
+    </div>
+
+    <div class="food-selection">
+      <div class="food-item">
+        <img src="burgers.jpeg" alt="Burgers, fries and fried chicken" />
+        <label
+          ><input
+            type="checkbox"
+            name="food"
+            value="Burgers, fries and fried chicken"
+          />
+          Burgers and fried chicken</label
+        >
+      </div>
+      <div class="food-item">
+        <img src="dog.jpeg" alt="dog" />
+        <label
+          ><input type="checkbox" name="food" value="hotdog" /> Hotdog</label
+        >
+      </div>
+      <div class="food-item">
+        <img src="koreanfood.jpeg" alt="koreanfood" />
+        <label
+          ><input type="checkbox" name="food" value="Korean food" /> Korean
+          food</label
+        >
+      </div>
+      <div class="food-item">
+        <img src="pasta.jpeg" alt="pasta" />
+        <label><input type="checkbox" name="food" value="pasta" /> Pasta</label>
+      </div>
+      <div class="food-item">
+        <img src="pizza.jpeg" alt="pizza" />
+        <label><input type="checkbox" name="food" value="pizza" /> Pizza</label>
+      </div>
+      <div class="food-item">
+        <img src="lips.jpg" alt="salad" />
+        <label><input type="checkbox" name="food" value="salad" /> Your dry lips</label>
+      </div>
+      <div class="food-item">
+        <img src="anvay.jpg" alt="Anvay" />
+        <label><input type="checkbox" name="food" value="ME" /> Anvay</label>
+      </div>
+      <div class="food-item">
+        <img src="brain.jpg" alt="sushi" />
+        <label><input type="checkbox" name="food" value="sushi" /> Anvay's brain</label>
+      </div>
+    </div>
+    <button class="button" onclick="location.href='dessert.html'">
+      Continue
+    </button>
+    <audio preload="auto" src="ikkudi.mp3" loop="true" autobuffer>
+        Unsupported in Firefox
+        </audio>
+        
+        <script>
+        
+        function setCookie(c_name,value,exdays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+            document.cookie=c_name + "=" + c_value;
+        }
+        
+        function getCookie(c_name)
+        {
+            var i,x,y,ARRcookies=document.cookie.split(";");
+            for (i=0;i<ARRcookies.length;i++)
+            {
+              x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+              y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+              x=x.replace(/^\s+|\s+$/g,"");
+              if (x==c_name)
+                {
+                return unescape(y);
+                }
+              }
+        }
+        
+        var song = document.getElementsByTagName('audio')[0];
+        var played = false;
+        var tillPlayed = getCookie('timePlayed');
+        function update()
+        {
+            if(!played){
+                if(tillPlayed){
+                song.currentTime = tillPlayed;
+                song.play();
+                played = true;
+                }
+                else {
+                        song.play();
+                        played = true;
+                }
+            }
+        
+            else {
+            setCookie('timePlayed', song.currentTime);
+            }
+        }
+        setInterval(update,1000);
+        </script>
+  </body>
+</html>
+
+
+
+
+

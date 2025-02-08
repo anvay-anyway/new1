@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drinks</title>
+    <link rel="stylesheet" href="dessert.css" />
+  </head>
+  <body>
+    <div id="dessertquestion">What are we drinking?</div>
+
+    <div class="dessert-selection">
+      <div class="dessert-item">
+        <img src="kingfisher.jpg" alt="Kingfisher Ultra" />
+        <label
+          ><input type="checkbox" name="dessert" value="boba" /> Kingfisher Ultra</label
+        >
+      </div>
+      <div class="dessert-item">
+        <img src="budweiser.jpg" alt="Budweiser Magnum" />
+        <label
+          ><input type="checkbox" name="dessert" value="churro" /> Budweiser Magnum</label
+        >
+      </div>
+      <div class="dessert-item">
+        <img src="cocktail.webp" alt="che" />
+        <label><input type="checkbox" name="dessert" value="Cocktail" /> Cocktail</label>
+      </div>
+      <div class="dessert-item">
+        <img src="brocode.webp" alt="brocode" />
+        <label
+          ><input type="checkbox" name="dessert" value="mochi" /> Brocode</label
+        >
+      </div>
+      <div class="dessert-item">
+        <img src="softdrinks.jpg" alt="softdrinks" />
+        <label
+          ><input type="checkbox" name="dessert" value="randombun" /> Soft drinks</label
+        >
+      </div>
+      <div class="dessert-item">
+        <img src="h20.jpg" alt="taiyaki" />
+        <label
+          ><input type="checkbox" name="dessert" value="water" />
+          H<sub>2</sub>O</label
+        >
+      </div>
+    </div>
+    <button class="button" onclick="location.href='activities.html'">
+      Continue
+    </button>
+    <audio preload="auto" src="ikkudi.mp3" loop="true" autobuffer>
+      Unsupported in Firefox
+      </audio>
+      
+      <script>
+      
+      function setCookie(c_name,value,exdays)
+      {
+          var exdate=new Date();
+          exdate.setDate(exdate.getDate() + exdays);
+          var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+          document.cookie=c_name + "=" + c_value;
+      }
+      
+      function getCookie(c_name)
+      {
+          var i,x,y,ARRcookies=document.cookie.split(";");
+          for (i=0;i<ARRcookies.length;i++)
+          {
+            x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+            y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+            x=x.replace(/^\s+|\s+$/g,"");
+            if (x==c_name)
+              {
+              return unescape(y);
+              }
+            }
+      }
+      
+      var song = document.getElementsByTagName('audio')[0];
+      var played = false;
+      var tillPlayed = getCookie('timePlayed');
+      function update()
+      {
+          if(!played){
+              if(tillPlayed){
+              song.currentTime = tillPlayed;
+              song.play();
+              played = true;
+              }
+              else {
+                      song.play();
+                      played = true;
+              }
+          }
+      
+          else {
+          setCookie('timePlayed', song.currentTime);
+          }
+      }
+      setInterval(update,1000);
+      </script>
+  </body>
+</html>

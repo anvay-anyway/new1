@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activities</title>
+    <link rel="stylesheet" href="activities.css" />
+  </head>
+  <body>
+    <div id="activityquestion"><b>Where are we having dinner?</b></div>
+    <div class="activities-selection">
+      <div class="activity-item">
+        <img src="college.jpg" alt="college" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="college"
+          />College</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="cafe.jpg" alt="cafe" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="arcade"
+          />Restaurant/cafe</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="car.jpg" alt="car" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="cinema"
+          />Car</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="home.jpg" alt="ceramics" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="ceramics"
+          />Your Home</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="spot.jpg" alt="spot" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="kunsthalle"
+          />Our spot</label
+        >
+      </div>
+      <div class="activity-item">
+        <img src="anvay.jpg" alt="anvay" />
+        <label
+          ><input
+            type="checkbox"
+            name="activities"
+            value="park.jpeg"
+          />Let Anvay decide</label
+        >
+      </div>
+    </div>
+    <button class="button" onclick="location.href='lastpage.html'">
+      Submit
+    </button>
+    <audio preload="auto" src="ikkudi.mp3" loop="true" autobuffer>
+        Unsupported in Firefox
+        </audio>
+        
+        <script>
+        
+        function setCookie(c_name,value,exdays)
+        {
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+            document.cookie=c_name + "=" + c_value;
+        }
+        
+        function getCookie(c_name)
+        {
+            var i,x,y,ARRcookies=document.cookie.split(";");
+            for (i=0;i<ARRcookies.length;i++)
+            {
+              x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+              y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+              x=x.replace(/^\s+|\s+$/g,"");
+              if (x==c_name)
+                {
+                return unescape(y);
+                }
+              }
+        }
+        
+        var song = document.getElementsByTagName('audio')[0];
+        var played = false;
+        var tillPlayed = getCookie('timePlayed');
+        function update()
+        {
+            if(!played){
+                if(tillPlayed){
+                song.currentTime = tillPlayed;
+                song.play();
+                played = true;
+                }
+                else {
+                        song.play();
+                        played = true;
+                }
+            }
+        
+            else {
+            setCookie('timePlayed', song.currentTime);
+            }
+        }
+        setInterval(update,1000);
+        </script>
+  </body>
+</html>
